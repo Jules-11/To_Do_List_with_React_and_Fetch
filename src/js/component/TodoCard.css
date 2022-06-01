@@ -1,0 +1,12 @@
+.btnHidden {
+    all:unset;
+    display:none;
+    cursor:pointer;
+    color: grey
+}
+
+
+li:hover .btnHidden{
+    display: inline-block;
+
+}
