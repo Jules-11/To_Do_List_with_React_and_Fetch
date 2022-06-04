@@ -29,8 +29,12 @@ const Home = () => {
 	]);
 
 	const addToDo = (toDo) => {
-		const idRandom = Math.floor(Math.random() * 100) + 1;
-		toDo.id = idRandom;
+		if (toDos.length) {
+			toDo.id = toDos[toDos.length - 1].id + 1;
+		} else {
+			toDo.id = 1;
+		}
+
 		setToDos([...toDos, toDo]);
 	};
 

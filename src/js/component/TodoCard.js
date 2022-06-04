@@ -9,7 +9,7 @@ const TodoCard = ({ toDos, addToDo, deleteToDo }) => {
 			<Header />
 			<ul className="list-group list-group-flush">
 				<Do addToDo={addToDo} />
-				{toDos.map((toDo) => (
+				{toDos.map((toDo, i) => (
 					<li
 						className="list-group-item d-flex flex-row justify-content-between"
 						key={toDo.id}>
