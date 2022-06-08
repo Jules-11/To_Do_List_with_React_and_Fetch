@@ -8,5 +8,17 @@
 
 li:hover .btnHidden{
     display: inline-block;
+}
 
+.btnUnset:active {
+    outline: none;
+}
+
+.taskDone {
+    text-decoration: line-through;
+}
+
+ul {
+    cursor:default;
+    user-select: none;
 }

@@ -3,7 +3,7 @@ import Header from "./Header";
 import Do from "./Do";
 import "./TodoCard.css";
 
-const TodoCard = ({ toDos, addToDo, deleteToDo }) => {
+const TodoCard = ({ toDos, addToDo, deleteToDo, deleteAll, changeStatus }) => {
 	return (
 		<div className="card">
 			<Header />
@@ -11,13 +11,18 @@ const TodoCard = ({ toDos, addToDo, deleteToDo }) => {
 				<Do addToDo={addToDo} />
 				{toDos.map((toDo, i) => (
 					<li
-						className="list-group-item d-flex flex-row justify-content-between"
-						key={toDo.id}>
-						{toDo.text}
+						className={
+							toDo.done === true
+								? "list-group-item d-flex flex-row justify-content-between taskDone"
+								: "list-group-item d-flex flex-row justify-content-between"
+						}
+						onDoubleClick={() => changeStatus(i)}
+						key={i}>
+						{toDo.label}
 						<div
-							todoid={toDo.id}
+							// todoid={toDo.id}
 							className="btnHidden"
-							onClick={() => deleteToDo(toDo.id)}>
+							onClick={() => deleteToDo(i)}>
 							<i className="bi bi-trash"></i>
 						</div>
 					</li>
@@ -26,6 +31,12 @@ const TodoCard = ({ toDos, addToDo, deleteToDo }) => {
 					{toDos.length === 0
 						? "No tasks, add a task!!!"
 						: toDos.length + " items left"}
+
+					<button
+						className="d-flex btn btnUnset btn-danger"
+						onClick={deleteAll}>
+						Delete All
+					</button>
 				</li>
 			</ul>
 		</div>

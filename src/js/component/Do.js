@@ -20,8 +20,9 @@ const Do = ({ addToDo }) => {
 			return false;
 		}
 		const newToDo = {
-			id: 0,
-			text: inputValue,
+			// id: 0,
+			label: inputValue,
+			done: false,
 		};
 		addToDo(newToDo);
 		setInputValue("");
